@@ -6,7 +6,6 @@ const port = 3201;
 const db = require('../database/system_model.js');
 
 app.use('/:id', express.static(path.join(__dirname, '../dist')));
-// app.use(express.static(path.join(__dirname, '../dist'))); // figure this one out!
 
 app.get('/system-requirements/:bundleId', async (req, res) => {
   const bundleId = req.params.bundleId;

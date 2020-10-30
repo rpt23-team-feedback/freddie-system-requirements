@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
+import SystemList from './SystemList';
 const axios = require('axios');
 
 const System = () => {
@@ -13,7 +14,6 @@ const System = () => {
 
     axios.get(`http://localhost:3201/system-requirements/${bundle}`)
     .then((results) => {
-      console.log(results);
       setSystemMinimum(results.data.minimum);
       setSystemRecommended(results.data.recommended);
     })
@@ -23,10 +23,16 @@ const System = () => {
   }, [bundle]);
 
   return (
-    <div>
-      {console.log('systemMinimum', systemMinimum)}
-      {console.log('systemRecommended', systemRecommended)}
-      <h1>Hello Systems</h1>
+    <div className='App'>
+      <h1>SYSTEM REQUIREMENTS</h1>
+      <div>
+        <h2>Minimum:</h2>
+        <SystemList systems={systemMinimum}/>
+      </div>
+      <div>
+        <h2>Recommended:</h2>
+        <SystemList systems={systemRecommended}/>
+      </div>
     </div>
   )
 };

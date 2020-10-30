@@ -3,7 +3,7 @@ import React from 'react';
 const SystemListItem = (props) => {
   return (
     <div>
-      <p className='systemName'>{props.system.name}</p>
+      <p><strong><u>{props.system.name}</u></strong></p>
       <p><strong>OS:</strong> {props.system.os}</p>
       <p><strong>Processor:</strong> {props.system.processor}</p>
       <p><strong>Memory:</strong> {props.system.memory}</p>

@@ -73,6 +73,7 @@ const System = () => {
     }
   ]);
   const [bundle, setBundle] = useState(0);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const bundleId = Number(window.location.pathname.replace(/\//g, ''));
@@ -85,22 +86,31 @@ const System = () => {
     })
     .catch((err) => {
       console.error(err);
+      setError('Please enter a valid Bundle ID');
     })
   }, []);
 
-  return (
-    <div className='App'>
-      <h1>SYSTEM REQUIREMENTS</h1>
-      <div>
-        <h2>Minimum:</h2>
-        <SystemList systems={systemMinimum}/>
+  if (error === null) {
+    return (
+      <div className='App'>
+        <h1>SYSTEM REQUIREMENTS</h1>
+        <div>
+          <h2>Minimum:</h2>
+          <SystemList systems={systemMinimum}/>
+        </div>
+        <div>
+          <h2>Recommended:</h2>
+          <SystemList systems={systemRecommended}/>
+        </div>
       </div>
+    )
+  } else {
+    return (
       <div>
-        <h2>Recommended:</h2>
-        <SystemList systems={systemRecommended}/>
+        <p>{error}</p>
       </div>
-    </div>
-  )
+    )
+  }
 };
 
 export default System;

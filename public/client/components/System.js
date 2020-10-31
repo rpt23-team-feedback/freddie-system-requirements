@@ -80,7 +80,6 @@ const System = () => {
 
     axios.get(`http://localhost:3201/system-requirements/${bundle}`)
     .then((results) => {
-      console.log(results);
       setSystemMinimum(results.data.minimum);
       setSystemRecommended(results.data.recommended);
     })

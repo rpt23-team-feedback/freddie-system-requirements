@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: "./public/client/index.js",
@@ -30,5 +31,8 @@ module.exports = {
     publicPath: "http://localhost:3201/dist/",
     hotOnly: true
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin()
+  ]
 };

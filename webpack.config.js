@@ -21,14 +21,14 @@ module.exports = {
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
   output: {
-    path: path.resolve(__dirname, "dist/"),
+    path: path.resolve(__dirname, "dist/bundle/"),
     publicPath: "/dist/",
     filename: "bundle.js"
   },
   devServer: {
     contentBase: path.join(__dirname, "public/"),
     port: 3201,
-    publicPath: "http://localhost:3201/dist/",
+    publicPath: "http://localhost:3201/dist/bundle",
     hotOnly: true
   },
   plugins: [

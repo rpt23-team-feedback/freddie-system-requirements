@@ -6,6 +6,10 @@ const db = require('../database/system_model.js');
 
 app.use('/:id', express.static(path.join(__dirname, '../dist')));
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../dist/index.html'));
+});
+
 app.get('/system-requirements/:bundleId', async (req, res) => {
   const bundleId = req.params.bundleId;
   if ((bundleId < 1 || bundleId > 100) || (bundleId === parseFloat(bundleId))) {
@@ -18,6 +22,7 @@ app.get('/system-requirements/:bundleId', async (req, res) => {
     res.status(500).send('Server Error, please wait while we work to fix it');
   }
 });
+
 
 app.listen(port, () => {
   console.log(`App listening on port: ${port}`);

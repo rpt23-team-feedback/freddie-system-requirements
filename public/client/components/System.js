@@ -75,10 +75,10 @@ const System = () => {
   const [bundle, setBundle] = useState(0);
 
   useEffect(() => {
-    const bundleId = window.location.pathname.replace(/\//g, '');
+    const bundleId = Number(window.location.pathname.replace(/\//g, ''));
     setBundle(bundleId);
 
-    axios.get(`http://localhost:3201/system-requirements/${bundle}`)
+    axios.get(`http://localhost:3201/system-requirements/${bundleId}`)
     .then((results) => {
       setSystemMinimum(results.data.minimum);
       setSystemRecommended(results.data.recommended);

@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: "./public/client/index.js",
+  entry: "./client/index.js",
   mode: "development",
   module: {
     rules: [
@@ -26,7 +26,7 @@ module.exports = {
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: path.join(__dirname, "public/"),
+    contentBase: path.join(__dirname, "client/"),
     port: 3201,
     publicPath: "http://localhost:3201/dist/bundle",
     hotOnly: true

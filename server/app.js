@@ -4,6 +4,11 @@ const path = require('path');
 const port = 3201;
 const db = require('../database/system_model.js');
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 app.use('/:id', express.static(path.join(__dirname, '../dist')));
 
 app.get('/', (req, res) => {

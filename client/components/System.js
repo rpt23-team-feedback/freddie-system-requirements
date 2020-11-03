@@ -79,7 +79,7 @@ const System = () => {
     const bundleId = Number(window.location.pathname.replace(/\//g, ''));
     setBundle(bundleId);
 
-    axios.get(`http://localhost:3201/system-requirements/${bundleId}`)
+    axios.get(`http://localhost:3201/system-requirements/${bundleId ? bundleId : 1}`)
     .then((results) => {
       setSystemMinimum(results.data.minimum);
       setSystemRecommended(results.data.recommended);

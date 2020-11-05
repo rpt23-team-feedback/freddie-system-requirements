@@ -7,8 +7,8 @@
     "test": "jest",
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
-    "dev": "webpack -d --watch",
-    "server": "nodemon ./server/app.js",
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon ./server/app.js",
     "seed": "node ./database/seed.js"
   },
   "repository": {
@@ -34,7 +34,7 @@
     "enzyme-adapter-react-16": "^1.15.5",
     "jest": "^26.6.2",
     "nodemon": "^2.0.6",
-    "style-loader": "^0.23.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"

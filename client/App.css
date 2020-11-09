@@ -1,6 +1,6 @@
-.App {
-  margin: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
+.system {
+  font-family: 'Source Sans Pro', sans-serif;  /* height: 200px; */
+  background-color: gray;
 }
 
 .systemName {
@@ -10,4 +10,21 @@
 
 .bold {
   font-weight: bold;
+}
+
+ul {
+  background-color: gray;
+  list-style: none;
+}
+
+p {
+  margin: .5%;
+}
+
+.app-size {
+  height: 200px;
+}
+
+.system-spacing {
+  margin-bottom: 3%;
 }

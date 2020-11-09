@@ -4,11 +4,11 @@
   "description": "My second module for FEC",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
-    "dev": "webpack -d --watch",
-    "server": "nodemon ./server/app.js",
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon ./server/app.js",
     "seed": "node ./database/seed.js"
   },
   "repository": {
@@ -23,20 +23,26 @@
   },
   "homepage": "https://github.com/redperezz/freddie-system-requirements#readme",
   "devDependencies": {
-    "@babel/cli": "^7.1.0",
-    "@babel/core": "^7.1.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.2",
-    "css-loader": "^1.0.0",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^1.0.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "jest": "^26.6.2",
     "nodemon": "^2.0.6",
-    "style-loader": "^0.23.0",
-    "webpack": "^4.19.1",
-    "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8"
+    "style-loader": "^0.23.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@shelf/jest-mongodb": "^1.2.3",
     "axios": "^0.21.0",
+    "babel-jest": "^26.6.2",
     "express": "^4.17.1",
     "faker": "^5.1.0",
     "install": "^0.13.0",
@@ -44,6 +50,7 @@
     "mongoose-auto-increment": "^5.0.1",
     "npm": "^6.14.8",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react-dom": "^16.14.0",
+    "react-test-renderer": "^17.0.1"
   }
 }

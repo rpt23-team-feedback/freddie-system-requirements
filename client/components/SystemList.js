@@ -5,8 +5,8 @@ const SystemList = (props) => {
   return (
     <div>
       <ul>
-        {props.systems.map((system) => {
-          return <li><SystemListItem key={system._id} system={system}/></li>
+        {props.systems.map((system, idx) => {
+          return <li><SystemListItem key={idx} system={system}/></li>
         })}
       </ul>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import SystemList from './SystemList';
+import SystemListItem from './SystemListItem';
 const axios = require('axios');
 
 const System = () => {
@@ -73,35 +74,72 @@ const System = () => {
     }
   ]);
   const [bundle, setBundle] = useState(0);
+  const [error, setError] = useState(null);
+  const [status, setStatus] = useState('less');
 
   useEffect(() => {
-    const bundleId = window.location.pathname.replace(/\//g, '');
+    const bundleId = Number(window.location.pathname.replace(/\//g, ''));
     setBundle(bundleId);
 
-    axios.get(`http://localhost:3201/system-requirements/${bundle}`)
+    axios.get(`http://localhost:3201/system-requirements/${bundleId ? bundleId : 1}`)
     .then((results) => {
-      console.log(results);
       setSystemMinimum(results.data.minimum);
       setSystemRecommended(results.data.recommended);
     })
     .catch((err) => {
       console.error(err);
+      setError('Please enter a valid Bundle ID');
     })
   }, []);
 
-  return (
-    <div className='App'>
-      <h1>SYSTEM REQUIREMENTS</h1>
+  const toggleMore = (status) => {
+    if (status === 'less') {
+      setStatus('more');
+    } else {
+      setStatus('less');
+    }
+    console.log(status);
+  }
+
+  if (error === null) {
+    if (status === 'less') {
+      return (
+        <div className='app'>
+        <h1 className='title'>SYSTEM REQUIREMENTS</h1>
+          <div className='app-font'>
+            <div>
+              <h2 className='min-rec-font'>Minimum:</h2>
+              <SystemListItem system={systemMinimum[0]}/>
+            </div>
+              <button onClick={()=> {toggleMore(status)}}>Show more system requirements</button>
+          </div>
+        </div>
+      )
+    } else if (status === 'more') {
+      return (
+        <div className='app'>
+        <h1 className='title'>SYSTEM REQUIREMENTS</h1>
+          <div className='app-font'>
+            <div>
+              <h2 className='min-rec-font'>Minimum:</h2>
+              <SystemList systems={systemMinimum}/>
+            </div>
+              <button onClick={()=> {toggleMore(status)}}>Show less system requirements</button>
+            <div>
+              <h2 className='min-rec-font'>Recommended:</h2>
+              <SystemList systems={systemRecommended}/>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  } else {
+    return (
       <div>
-        <h2>Minimum:</h2>
-        <SystemList systems={systemMinimum}/>
+        <p>{error}</p>
       </div>
-      <div>
-        <h2>Recommended:</h2>
-        <SystemList systems={systemRecommended}/>
-      </div>
-    </div>
-  )
+    )
+  }
 };
 
 export default System;

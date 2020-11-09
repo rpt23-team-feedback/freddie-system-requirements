@@ -1,8 +1,9 @@
 const path = require("path");
 const webpack = require("webpack");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: "./public/client/index.js",
+  entry: "./client/index.js",
   mode: "development",
   module: {
     rules: [
@@ -20,15 +21,18 @@ module.exports = {
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
   output: {
-    path: path.resolve(__dirname, "dist/"),
+    path: path.resolve(__dirname, "dist/bundle/"),
     publicPath: "/dist/",
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: path.join(__dirname, "public/"),
+    contentBase: path.join(__dirname, "client/"),
     port: 3201,
-    publicPath: "http://localhost:3201/dist/",
+    publicPath: "http://localhost:3201/dist/bundle",
     hotOnly: true
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new CleanWebpackPlugin()
+  ]
 };

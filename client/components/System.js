@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import SystemList from './SystemList';
+import SystemListItem from './SystemListItem';
 const axios = require('axios');
 
 const System = () => {
@@ -74,6 +75,7 @@ const System = () => {
   ]);
   const [bundle, setBundle] = useState(0);
   const [error, setError] = useState(null);
+  const [status, setStatus] = useState('less');
 
   useEffect(() => {
     const bundleId = Number(window.location.pathname.replace(/\//g, ''));
@@ -90,22 +92,47 @@ const System = () => {
     })
   }, []);
 
+  const toggleMore = (status) => {
+    if (status === 'less') {
+      setStatus('more');
+    } else {
+      setStatus('less');
+    }
+    console.log(status);
+  }
+
   if (error === null) {
-    return (
-      <div className='app'>
-      <h1 className='title'>SYSTEM REQUIREMENTS</h1>
-        <div className='app-font'>
-          <div>
-            <h2 className='min-rec-font'>Minimum:</h2>
-            <SystemList systems={systemMinimum}/>
-          </div>
-          <div>
-            <h2 className='min-rec-font'>Recommended:</h2>
-            <SystemList systems={systemRecommended}/>
+    if (status === 'less') {
+      return (
+        <div className='app'>
+        <h1 className='title'>SYSTEM REQUIREMENTS</h1>
+          <div className='app-font'>
+            <div>
+              <h2 className='min-rec-font'>Minimum:</h2>
+              <SystemListItem system={systemMinimum[0]}/>
+            </div>
+              <button onClick={()=> {toggleMore(status)}}>Show more system requirements</button>
           </div>
         </div>
-      </div>
-    )
+      )
+    } else if (status === 'more') {
+      return (
+        <div className='app'>
+        <h1 className='title'>SYSTEM REQUIREMENTS</h1>
+          <div className='app-font'>
+            <div>
+              <h2 className='min-rec-font'>Minimum:</h2>
+              <SystemList systems={systemMinimum}/>
+            </div>
+              <button onClick={()=> {toggleMore(status)}}>Show less system requirements</button>
+            <div>
+              <h2 className='min-rec-font'>Recommended:</h2>
+              <SystemList systems={systemRecommended}/>
+            </div>
+          </div>
+        </div>
+      )
+    }
   } else {
     return (
       <div>

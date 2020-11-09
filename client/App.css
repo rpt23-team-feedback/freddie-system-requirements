@@ -5,7 +5,7 @@
 }
 
 .app-font {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0px 0px 20px;
 }
 
@@ -17,7 +17,7 @@ ul {
 
 p {
   margin: .5%;
-  color: gray;
+  color:#a1a7b2;
 }
 
 .app-size {
@@ -30,20 +30,20 @@ p {
 
 .min-rec-font {
   font-size: 16px;
-  color: gray;
+  color:#a1a7b2;
 }
 
 .title {
-  font-size: 18px;
-  color: gray;
+  font-size: 16px;
+  color: #a1a7b2;
 }
 
 button {
   background-color: #1B1E1B;
-  color: gray;
+  color: #a1a7b2;
   border: none;
-  font-size: 18px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
 }
 

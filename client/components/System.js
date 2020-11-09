@@ -92,15 +92,17 @@ const System = () => {
 
   if (error === null) {
     return (
-      <div className='system'>
-        <div className='system'>
-        <h1>SYSTEM REQUIREMENTS</h1>
-          <h2>Minimum:</h2>
-          <SystemList systems={systemMinimum}/>
-        </div>
-        <div className='system system-spacing'>
-          <h2>Recommended:</h2>
-          <SystemList systems={systemRecommended}/>
+      <div className='app'>
+      <h1 className='title'>SYSTEM REQUIREMENTS</h1>
+        <div className='app-font'>
+          <div>
+            <h2 className='min-rec-font'>Minimum:</h2>
+            <SystemList systems={systemMinimum}/>
+          </div>
+          <div>
+            <h2 className='min-rec-font'>Recommended:</h2>
+            <SystemList systems={systemRecommended}/>
+          </div>
         </div>
       </div>
     )

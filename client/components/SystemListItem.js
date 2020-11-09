@@ -3,7 +3,7 @@ import React from 'react';
 const SystemListItem = (props) => {
   return (
     <div>
-      <div className='system-spacing'>
+      <div className='between-systems-spacing'>
         <p><strong><u>{props.system.name}</u></strong></p>
         <p><strong>OS:</strong> {props.system.os}</p>
         <p><strong>Processor:</strong> {props.system.processor}</p>

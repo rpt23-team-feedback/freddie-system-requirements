@@ -1,30 +1,41 @@
-.system {
+.app {
+  background-color: #1B1E1B;
+  padding: 3% 10%;
+  margin: 0;
+}
+
+.app-font {
   font-family: 'Source Sans Pro', sans-serif;  /* height: 200px; */
-  background-color: gray;
-}
-
-.systemName {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.bold {
-  font-weight: bold;
+  margin: 0px 0px 20px;
 }
 
 ul {
-  background-color: gray;
+  background-color: #1B1E1B;
   list-style: none;
+  padding: 0;
 }
 
 p {
   margin: .5%;
+  color: gray;
 }
 
 .app-size {
   height: 200px;
 }
 
-.system-spacing {
+.between-systems-spacing {
   margin-bottom: 3%;
 }
+
+.min-rec-font {
+  font-size: 16px;
+  color: gray;
+}
+
+.title {
+  font-size: 18px;
+  color: gray;
+}
+
+

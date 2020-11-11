@@ -1,6 +1,6 @@
 .app {
   background-color: #1B1E1B;
-  padding: 3% 10%;
+  padding: 2% 8%;
   margin: 0;
 }
 
@@ -31,11 +31,13 @@ p {
 .min-rec-font {
   font-size: 16px;
   color:#a1a7b2;
+  padding-bottom: 15px;
 }
 
 .title {
   font-size: 16px;
   color: #a1a7b2;
+  padding-bottom: 7px;
 }
 
 button {
@@ -45,6 +47,14 @@ button {
   font-size: 15px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  cursor: pointer;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
+.arrow {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 8px;
+}
 

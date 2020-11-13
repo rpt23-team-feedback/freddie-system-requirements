@@ -124,11 +124,11 @@ const System = () => {
               <h2 className='min-rec-font'>Minimum:</h2>
               <SystemList systems={systemMinimum}/>
             </div>
-              <button onClick={()=> {toggleMore(status)}}>Show less system requirements <span className='arrow'>&#9650;</span></button>
             <div>
               <h2 className='min-rec-font'>Recommended:</h2>
               <SystemList systems={systemRecommended}/>
             </div>
+              <button onClick={()=> {toggleMore(status)}}>Show less system requirements <span className='arrow'>&#9650;</span></button>
           </div>
         </div>
       )

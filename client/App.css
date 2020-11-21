@@ -48,7 +48,7 @@ button {
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   cursor: pointer;
-  padding-top: 20px;
+  padding-top: 5px;
   padding-bottom: 40px;
 }
 
@@ -56,5 +56,9 @@ button {
   display: inline-block;
   vertical-align: middle;
   font-size: 8px;
+}
+
+.test {
+  color: aqua;
 }
 
